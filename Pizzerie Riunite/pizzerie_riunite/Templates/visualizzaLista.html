@@ -1,0 +1,59 @@
+<div class = "row">
+  <div class = "col-md-2">
+    <br><br><br><br>
+
+  <div class="btn-group-vertical" data-toggle="buttons">
+
+       <button type="button" class="btn btn-success" onclick="visualizzaLista()"> Visualizza giorni </button><br>
+       <button type="button" class="btn btn-success" onclick="creaGiorno()"> Crea nuovo Giorno </button><br><br>
+       <button type="button" class="btn btn-danger" onclick="eliminaPizzeria()"> Elimina la tua Pizzeria dal servizio </button> <br>
+
+  </div>
+
+  
+  </div>
+  <div class = "col-md-10">
+<br><br>
+
+   <div ng-controller = "visualizzaCtrl">
+
+      <h3> Visualizzazione giorni creati per la pizzeria : <b id = "pizzeria"> </b> </h3><br><br>
+   <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Giorno</th>
+      <th scope="col">Posti Liberi</th>
+      <th scope="col">Posti Totali</th>
+      <th scope="col">Orario Apertura</th>
+      <th scope="col">Orario Chiusura</th>
+      <th scope="col">Numero Tavoli</th>
+      <th scope="col">Azione</th>
+
+    </tr>
+  </thead>
+  <tbody>
+
+    <!--Creo una riga per ogni oggetto ritornato contenente tutti i campi presi dal Database attraverso i file php-->
+    <tr ng-repeat = "post in posts.data" class="table-active">
+      <th scope="row">{{post.giorno}}</th>
+      <td>{{post.nPostiLiberi}}</td>
+      <td>{{post.nPostiTotali}}</td>
+      <td>{{post.ora_apertura}}</td>
+      <td>{{post.ora_chiusura}}</td>
+      <td>{{post.numero_tavoli}}</td>
+
+      <!-- Creo per ogni oggetto i bottoni per la modifica e la cancellazione di un giorno -->
+      <!-- Creo l'href per ogni bottone in base al giorno in cui la pizzeria ha effettuato una gestione-->
+      <td>
+            <a ng-href="#/modificaGiorno/{{post.giorno}}"> <button type="button" class="btn btn-warning">Modifica</button></a>
+
+            <a ng-href="#/eliminaGiorno/{{post.giorno}}"> <button type="button" class="btn btn-danger">Elimina</button></a>
+      </td>
+    </tr>
+  </tbody>
+  </table> 
+  </div>
+  </div>
+</div>
+
+

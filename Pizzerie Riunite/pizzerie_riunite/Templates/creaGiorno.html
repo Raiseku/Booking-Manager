@@ -1,0 +1,91 @@
+<div class = "row">
+
+  <div class = "col-md-10">
+
+    <form><br><br>
+      <fieldset>
+        <legend>Aggiungi un nuovo giorno compilando tutti i campi con i valori corretti</legend><br><br>
+
+
+      <!-- Definizione del calendario   -->
+      <div class="form-group">
+      <div class="bootstrap-iso">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12">   
+             <form method="post">
+               <div class="form-group">
+                  <label class="control-label" for="date">Aggiungi la nuova data</label>
+                  <input class="form-control" id="date" name="date" placeholder="Anno-Mese-Giorno" type="text"/>
+               </div>
+              </form>
+           </div>
+         </div>    
+        </div>
+       </div>
+      </div>
+        <br>
+
+
+
+        <div class="form-group">
+          <label for="exampleInputEmail1"><b>Numero posti totali</b></label>
+          <input type="text" class="form-control" id="nPostiTotali" aria-describedby="emailHelp" placeholder="Numero posti totali">
+        </div>
+
+
+
+        <div class="form-group">
+          <label for="exampleInputEmail1"><b>Numero tavoli</b></label>
+          <input type="text" class="form-control" id="nTavoli" aria-describedby="emailHelp" placeholder="Numero totale di tavoli">
+        </div><br>
+        
+        <label for="exampleSelect1"><b>Scegli l'ora di apertura dell'attività</b></label>
+          <input type="time" id="oraApertura" name="appt">
+
+          <br><br><br>
+
+
+          <label for="exampleSelect1"><b>Scegli l'ora di chiusura dell'attività</b></label>
+         <input type="time" id="oraChiusura" name="appt">
+
+        <br><br><br>
+
+          <div class="alert alert-dismissible alert-warning">
+            <h4 class="alert-heading"><b>Risposta del Servizio:</b> </h4>
+            <p class="mb-0" id="msgError"> </p>
+          </div>
+
+        <!--Se l'utente clicca il bottone allora verrà richiamata la corrispettiva funzione di js con id 'submit'-->
+        <button type="button" class="btn btn-primary btn-lg btn-block" id = "submit">Conferma il nuovo giorno</button>
+
+        <br><br>
+        <!--Do la possibilità all'utente di tornare indietro e visualizzare la lista dei giorni-->
+        <button type="button" class="btn btn-primary btn-lg btn-block" href="" onclick="visualizzaLista()">Torna Indietro</button>
+        </div>
+
+
+
+        
+    </form>
+</div>
+</div>
+
+
+<!--Definisco lo script interno al Body per eseguire le funzionalità del calendario-->
+<script>
+    $(document).ready(function(){
+      var date_input=$('input[name="date"]'); 
+      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+      var options={
+        format: 'yyyy/mm/dd',
+        container: container,
+        todayHighlight: true,
+        autoclose: true,
+      };
+      date_input.datepicker(options);
+    })
+</script>
+
+
+

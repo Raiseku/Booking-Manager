@@ -1,0 +1,78 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<div class = "row">
+  
+  <div class = "col-md-10">
+
+    <form><br><br>
+      <fieldset>
+        <legend>Effettua una nuova prenotazione compilando i campi sottostanti</legend><br><br>
+
+
+         <label class="control-label" for="date"><b>Scegli la pizzeria</b></label>
+        <select class="form-control" id="luogo" name="luogo">
+          <option ng-repeat="post in posts" value="{{post.nome_pizzeria}}">{{post.nome_pizzeria}}</option>
+        </select>     
+
+
+
+      <div class="bootstrap-iso">
+
+
+   
+             <form method="post">
+                <div class="form-group">
+                  <label class="control-label" for="date"><b>Scegli il giorno</b></label>
+                  <input class="form-control" id="date" name="date" placeholder="Anno-Mese-Giorno" type="text"/>      
+                </div>
+
+                
+              </form>
+
+
+       </div>
+
+
+
+
+
+
+                <div class="form-group">
+                  <label for="exampleInputEmail1"><b>Indica quanti posti vuoi prenotare</b></label>
+                  <input type="email" class="form-control" id="nPosti" aria-describedby="emailHelp" placeholder="Numero posti">
+                </div>
+
+                <div class="form-group"><b>Scegli l'orario della tua prenotazione</b></label>
+                 <input type="time" class="form-control" id="orarioN" >
+                </div>
+      <br>
+       <div class="alert alert-dismissible alert-warning">
+          <h4 class="alert-heading"><b>Risposta del Servizio:</b> </h4>
+          <p class="mb-0" id="msgError"> </p>
+        </div>
+    </form>
+    <div ng-controller = "modificaPrenotazioneCtrl"> 
+      <button class="btn btn-primary btn-lg btn-block" id = "prenota">Prenota</button>
+    </div>
+
+    <br><br>
+    <button type="button" class="btn btn-primary btn-lg btn-block" href="" onclick="visualizzaPrenotazioni()">Torna Indietro</button>
+
+  </div>
+</div>
+
+
+<!--Definisco lo script interno al Body per eseguire le funzionalità del calendario-->
+<script>
+    $(document).ready(function(){
+      var date_input=$('input[name="date"]'); 
+      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+      var options={
+        format: 'yyyy/mm/dd',
+        container: container,
+        todayHighlight: true,
+        autoclose: true,
+      };
+      date_input.datepicker(options);
+    })
+</script>
+

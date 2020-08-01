@@ -1,0 +1,62 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<div class = "row">
+  <div class = "col-md-2">
+    <br><br><br><br>
+    <ul class="nav nav-pills flex-column">
+      <li class="nav-item">
+        <!-- / è l'Home page quindi su Visualizza Prenotazioni c'è l'Home Page -->
+
+         <button type="button" class="btn btn-primary" onclick="visualizzaPrenotazioni()"> Visualizza prenotazioni </button>
+      </li>
+
+      <li class="nav-item">
+         <button type="button" class="btn btn-primary" onclick="creaPrenotazione()"> Effettua prenotazione</button>
+      </li>
+      <br>
+      <li>
+             <button type="button" class="btn btn-danger" onclick="eliminaCliente()"> Elimina il tuo account dal servizio </button>
+      </li>
+    </ul>
+
+
+  </div>
+  <div class = "col-md-10">
+<br><br>
+  <legend> Visualizzazione completa delle prenotazioni effettuate </legend><br><br>
+
+
+      <div ng-controller = "visualizzaPrenotazioniCtrl">
+      <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Giorno</th>
+      <th scope="col">Luogo</th>
+      <th scope="col">Orario</th>
+      <th scope="col">Posti prenotati</th>
+      <th scope="col">Azioni</th>
+
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr ng-repeat = "post in posts.data" class="table-active">
+      <td>{{post.giorno}}</td>
+      <td>{{post.nome_pizzeria}}</td>
+      <td>{{post.ora}}:{{post.minuti}}</td>
+      <td>{{post.numero_posti_prenotati}}</td>
+      <td>
+            <a ng-href="#/modificaPrenotazione/{{post.id}}"> <button type="button" class="btn btn-warning">Modifica</button></a>
+
+            <a ng-href="#/eliminaPrenotazione/{{post.id}}"> <button type="button" class="btn btn-danger">Elimina</button></a>
+      </td>
+    </tr>
+
+    
+
+  </tbody>
+</table> 
+    </div>
+  </div>
+</div>
+
+

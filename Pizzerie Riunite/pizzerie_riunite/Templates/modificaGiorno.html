@@ -1,0 +1,72 @@
+<div class = "row">
+
+
+  <div class = "col-md-10">
+
+    <!-- Definisco il controller -->
+    <div ng-controller = "visualizzaGiornoCtrl"> 
+
+    <form><br><br>
+      <fieldset>
+        <legend>In questa sezione puoi visualizzare e modificare la programmazione di un giorno</legend><br><br>
+        
+        <!-- Essendo un singolo giorno, non è necessario creare un ng-repeat ma solamente accedere ai singoli campi dell'oggetto JSON ritornato da PHP -->
+        <fieldset>
+          <!-- Visualizzo tutti i dati ritornati tramite Json  -->
+          <!-- Do l'id 'giorno' alla data così che possa successivamente ottenerla tramite id per effettuare una corretta query di modifica-->
+            <h4>Giorno selezionato: <b id = "giorno">{{posts.giorno}}</b> </h4>
+            <h4>Numero di posti totali: <b>{{posts.nPostiTotali}}</b></h4>
+            <h4>Numero di posti ancora liberi : <b>{{posts.nPostiLiberi}}</b></h4>
+            <h4>Orario apertura attività: <b>{{posts.ora_apertura}}</b></h4>
+            <h4>Orario chiusura attività: <b>{{posts.ora_chiusura}}</b></h4>
+            <h4>Numero di tavoli disponibili: <b>{{posts.numero_tavoli}}</b></h4>
+        </fieldset>
+      
+        <br> 
+
+        <div class="alert alert-dismissible alert-danger">
+            <h4 class="alert-heading"><b>Modifica i campi sottostanti solamente se intendi modificare la tua programmazione:</b> </h4>
+        </div><br><br>
+
+
+        <!--Definisco le form necessaria ad una completa modifica del giorno -->
+        <div class="form-group">
+          <label for="exampleInputEmail1"><b>Numero posti da aggiungere (Inserisci un valore positivo) o togliere (inserisci un valore negativo)</b></label>
+          <input type="number" class="form-control" id="nPostiAggiunti" placeholder="Inserisci un numero">
+        </div>
+
+        <div class="form-group">
+          <label for="exampleInputEmail1"><b>Numero tavoli da aggiungere (Inserisci un valore positivo) o togliere (inserisci un valore negativo)</b></label>
+          <input type="number" class="form-control" id="nTavoliAggiunti"placeholder="Inserisci un numero">
+        </div>
+
+        <label for="exampleSelect1"><b>Scegli l'ora di apertura dell'attività</b></label>
+          <input type="time" id="oraApertura" name="appt">
+
+          <br><br><br>
+
+
+          <label for="exampleSelect1"><b>Scegli l'ora di chiusura dell'attività</b></label>
+         <input type="time" id="oraChiusura" name="appt"><br><br>
+
+
+          <div class="alert alert-dismissible alert-warning">
+            <h4 class="alert-heading"><b>Risposta del Servizio:</b> </h4>
+            <p class="mb-0" id="msgError"> </p>
+          </div>
+        <br>
+    </form>
+ </div>
+
+
+  <!--Do il controllo all'AggiornaGiornoCtrl affinchè possa eseguire l'azione di aggiornamento -->
+    <div ng-controller = "aggiornaGiornoCtrl"> 
+      <button class="btn btn-primary btn-lg btn-block" id = "aggiorna">Aggiorna Dati</button>
+    </div>
+
+    <!--Do la possibilità all'utente di tornare indietro e quindi di non aggiornare il giorno selezionato-->
+    <br><br>
+    <button type="button" class="btn btn-primary btn-lg btn-block" href="" onclick="visualizzaLista()">Torna Indietro</button>
+
+</div>
+</div>

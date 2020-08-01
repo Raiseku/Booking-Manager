@@ -1,0 +1,61 @@
+
+
+<div class="jumbotron">
+  <h1 class="display-3">Benvenuto nel nostro servizio! </h1>
+  <p class="lead">Effettua il login su questa pagina se hai già un account oppure clicca "Registrazione" sulla barra in alto!</p>
+  <hr class="my-4">
+
+  <div class = "row"> 
+  	<div class = "col-md-5">
+  	<div class="form-group">
+
+  	<h3> Effettua il Login Utente </h3><br>
+      <label for="exampleInputPassword1"> <h5>Email </h5></label>
+      <input type="email" class="form-control" id="emailUtente" placeholder="Email">
+
+      <br>
+      <label for="exampleInputPassword1"> <h5>Password </h5></label>
+      <input type="password" class="form-control" id="passwordUtente" placeholder="Password">
+
+    </div>
+          <div ng-controller = "loginCtrl"> 
+	    <p class="lead">
+	    <a class="btn btn-primary btn-lg" id="loginUtente" role="button" href = "">Login da utente</a>
+  		</p>
+    </div>
+	</div>
+
+
+<div class = "col-md-5">
+<div class="form-group">
+	<h3> Effettua il Login Pizzeria </h3><br>
+	<label for="exampleInputPassword1"><h5> Nome Pizzeria </h5></label>
+    <input type="text" class="form-control" id="nomePizzeriaLogin" placeholder="None pizzeria che hai inserito durante la registrazione">
+<br>
+    <label for="exampleInputPassword1"><h5> Password </h5></label>
+    <input type="password" class="form-control" id="passwordLogin" placeholder="Password utilizzata">
+<br>
+    <div class="alert alert-dismissible alert-warning">
+          <h4 class="alert-heading"><b>Risposta del Servizio:</b> </h4>
+          <p class="mb-0" id="rispostaServizio"> </p>
+  </div>
+</div>
+   
+
+    <div ng-controller = "loginCtrl"> 
+	<p class="lead">
+	    <a class="btn btn-primary btn-lg" id = "loginPizzeria" role="button" href = "">Login da Pizzeria</a>
+  	</p>
+  </div>
+
+</div>
+</div>
+</div>
+
+
+
+
+	
+
+
+
