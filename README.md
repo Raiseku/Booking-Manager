@@ -1,2 +1,2 @@
-# Pizzerie_Riunite
-Progetto che prevede la creazione di un sito per la gestione di prenotazioni su un insieme di pizzerie iscritte al sito. I linguaggi utilizzati sono stati PHP, Javascript e HTML.
+# Booking Manager
+Project that involves the creation of a site for the management of reservations on a set of pizzerias registered to the site. The languages used were PHP, Javascript (AngularJs) and HTML.
